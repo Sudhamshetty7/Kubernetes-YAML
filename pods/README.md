@@ -1,5 +1,6 @@
 #PODS
 #Deploy the Pod in the available nodes
+
 ```
 kubectl apply -f pod.yml 
 ```
