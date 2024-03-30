@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Sudham
+  template:
+    metadata:
+      name: myjenkins
+      labels:
+        app: Sudham
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
