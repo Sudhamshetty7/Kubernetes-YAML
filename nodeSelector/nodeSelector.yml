@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+spec:
+  containers: 
+    - name: my-jenkins
+      image: jenkins/jenkins:lts
+  nodeSelector:
+    size: small  
