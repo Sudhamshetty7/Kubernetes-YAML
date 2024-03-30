@@ -1,13 +1,13 @@
-#PODS
+PODS
 
-#Deploy the Pod in the available nodes
+Deploy the Pod in the available nodes
 
 ```
 kubectl apply -f pod.yml 
 ```
 pod/my-jenkins created
 
-#List all the Pods
+List all the Pods
 ```
 kubectl get pods
 ```
@@ -15,7 +15,7 @@ kubectl get pods
 NAME         READY   STATUS    RESTARTS   AGE
 my-jenkins   1/1     Running   0          6s
 ```
-#List all the pods with detailed Output
+List all the pods with detailed Output
 ```
 kubectl get pods -owide
 ```
