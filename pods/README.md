@@ -1,7 +1,9 @@
 PODS
 
 root@ip-10-0-0-130:~# kubectl apply -f pod.yml 
-''' pod/my-jenkins created '''
+```
+pod/my-jenkins created
+```
 root@ip-10-0-0-130:~# kubectl get pods
 NAME         READY   STATUS    RESTARTS   AGE
 my-jenkins   1/1     Running   0          6s
