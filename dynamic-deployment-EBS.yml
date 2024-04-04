@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:  
+    app: jenkins
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: Sudham
+  template:
+    metadata:
+      labels:
+        type: Sudham
+    spec:
+      securityContext:
+        fsGroup: 1000 
+        runAsUser: 0
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins:lts
+          volumeMounts:
+            - name: jenkins-backup
+              mountPath: /var/jenkins_home
+      volumes:
+        - name: jenkins-backup
+          persistentVolumeClaim:
+            claimName: pvc-ebs
