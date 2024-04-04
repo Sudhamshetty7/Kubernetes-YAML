@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application
+  namespace: example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-jenkins
+  template:
+    metadata:
+      labels:
+        app: my-jenkins
+    spec:
+      containers:
+      - name: my-jenkins-container
+        image: jenkins/jenkins
+        volumeMounts: 
+          - mountPath: /var/jenkins_home
+            name: my-volume-jenkins
+      volumes:
+        - name: my-volume-jenkins
+          hostPath: 
+            path: /root/jenkins_data
+            type: Directory  
