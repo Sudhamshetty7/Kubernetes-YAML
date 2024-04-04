@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-jenkins
+  template:
+    metadata:
+      labels:
+        app: my-jenkins
+    spec:
+      securityContext:
+        fsGroup: 1000 
+        runAsUser: 0
+      containers:
+      - name: my-jenkins-container
+        image: jenkins/jenkins
+        volumeMounts: 
+          - mountPath: /var/jenkins_home
+            name: my-volume-jenkins
+      volumes:
+        - name: my-volume-jenkins
+          persistentVolumeClaim:
+            claimName: ebs-claim
